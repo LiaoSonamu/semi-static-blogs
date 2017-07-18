@@ -1,6 +1,6 @@
-# SHELL BLOGS
+# SEMI STATIC BLOGS
 
-## TEXT
+## TEST
 
 ```bash
 npm start
