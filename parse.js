@@ -1,6 +1,6 @@
 const fs = require('fs'), crypto = require('crypto');
 
-let mainData = {categories: [], tags: [], articles: []};
+let mainData = {categories: [], articles: []};
 
 // 解析文章以及日志
 fs.readdirSync('posts').forEach(category => {
@@ -47,4 +47,4 @@ mainData.articles.forEach(article => {
 
 mainData.articles = mainData.articles.sort((a, b) => new Date(b.head.date) - new Date(a.head.date));
 
-fs.writeFileSync('db.json', JSON.stringify(mainData, null, ' '));
+fs.writeFileSync('db.json', JSON.stringify(mainData));
