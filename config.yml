@@ -1,0 +1,9 @@
+# 服务器配置
+port: 80 # 端口
+
+page_size: 15 # 文章列表每页显示条数
+
+# 静态资源URL
+static_images: /images/
+static_styles: /styles/
+static_scripts: /scripts/

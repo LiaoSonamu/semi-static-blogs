@@ -1,0 +1,41 @@
+ <ul class="l-articles">
+  <% articles.forEach(article => { %>
+    <li class="l-article-list">
+      <h2>
+        <a href="/article/<%= article.head.id %>"><%= article.title %></a>
+      </h2>
+      <div class="article-info">
+        <span>
+          <i class="fa fa-folder"></i> 
+          <a href="/category/<%= encodeURI(article.categories[0]) %>?type=0"><%= article.categories[0] %></a>
+          ·
+          <a href="/category/<%= encodeURI(article.categories[1]) %>?type=1"><%= article.categories[1] %></a>
+        </span>
+        <span>
+          <i class="fa fa-calendar"></i> <%= article.head.date %>
+        </span>
+        <span>
+          <i class="fa fa-eye"></i>
+          <span id="sourceId::<%= article.head.id %>" class="cy_cmt_count">0</span>
+        </span>
+        <% if(article.head.link){ %>
+          <span>
+            <i class="fa fa-link"></i>
+            <a href="<%= article.head.link %>" target="_blank">原文地址</a>
+          </span>
+        <% } %>
+      </div>
+      <div class="article-detail">
+        <%- _markdown(article.abstract) %>
+      </div>
+      <div class="article-tags">
+        <i class="fa fa-tags"></i>
+        <%article.head.tags.forEach(tag => {%>
+          <a href="/tag/<%= encodeURI(tag) %>"><%= tag %></a>
+        <%});%>
+      </div>
+    </li>
+  <% }); %>
+</ul>
+<!--获取评论数JS-->
+<script id="cy_cmt_num" src="https://changyan.sohu.com/upload/plugins/plugins.list.count.js?clientId=cyt6bHvkm"></script>

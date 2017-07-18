@@ -1,0 +1,15 @@
+<div class="search-box">
+  <input type="text" autocomplete="off" autofocus placeholder="站内搜索">
+  <i class="fa fa-search"></i>
+</div>
+
+<h4 class="partial-title">栏目分类：</h4>
+<div class="partial-box">
+  <% $categories.forEach(v => { %>
+    <a href="/category/<%= encodeURI(v.name) %>?type=0" class="red"><%= v.name %></a>:&nbsp;
+    <% v.sec.forEach(sec => { %>
+      <a href="/category/<%= encodeURI(sec) %>?type=1"><%= sec %></a>
+    <% }); %>
+    <br>
+  <% }); %>
+</div>

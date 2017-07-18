@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sonamu</title>
+    <link rel='stylesheet' href='<%= $config.static_styles %>/awesome.css' />
+    <link rel='stylesheet' href='<%= $config.static_styles %>/style.css' />
+  </head>
+  <body>
+
+    <div class="l-main">
+
+      <div class="l-left">
+        <div class="l-left-scroll">
+
+          <nav class="l-path-nav">
+            <i class="fa fa-home"></i>
+            <a href="/">首页</a>
+            <% if(pathNav && pathNav.length){ %>
+              <% pathNav.forEach(v => { %>
+                <a href="<%= v.url ? v.url : 'javascript:;' %>" class="<%= v.url ? '' : 'disabled' %>"><%= v.name %></a>
+              <% }); %>
+            <% } %>
+            <!-- <a href="">操作系统</a>
+            <a href="javascript:;" class="disabled">Android</a> -->
+          </nav>
+          
+          <% if(right === 'detail'){ %>
+            <% include _partial/article-detail %>
+          <% } else { %>
+            <% include _partial/article-lists %>
+          <% } %>
+        </div>
+      </div>
+
+      <div class="l-right">
+        <div class="l-right-scroll">
+          <% include _partial/right %>
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
